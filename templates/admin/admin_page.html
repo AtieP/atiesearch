@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }}Admin{% endblock %}
+
+{% block content %}
+<section class="section">
+    <aside class="menu">
+        <p class="menu-label">
+            Administration
+        </p>
+        <ul class="menu-list">
+            <li><a href="#messages">New messages</a></li>
+            <li><a href="#add-site">Add site</a></li>
+            <li><a href="#add-admin">Add admin</a></li>
+        </ul>
+    </aside>
+</section>
+<section class="section">
+    <div class="container" id="messages">
+        <h1 class="title">New messages</h1>
+        {% if not messages %}
+            <p class="subtitle">There are no new messages.</p>
+        {% else %}
+            {% for message in messages %}
+            <article class="message">
+                <div class="message-header">
+                    <p>{{ message['author'] }}</p>
+                    <button class="delete" aria-label="delete" onclick="this.parentNode.parentNode.remove();"></button>
+                </div>
+                <div class="message-body">
+                    {{ message['content'] }}
+                </div>
+            </article>
+            <br>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+<section class="section">
+    <div class="container" id="add-site">
+        <h1 class="title">
+            Add site
+        </h1>
+        <form action="/admin" method="POST">
+            <div class="card">
+                <div class="card-content">
+                    <div class="field">
+                        <label class="label">Website</label>
+                        <div class="control">
+                            <input class="input is-info" type="text" name="site_to_add">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-info" type="submit">Crawl</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<section class="section">
+    <div class="container" id="add-admin">
+        <h1 class="title">
+            Add admin
+        </h1>
+        <form action="/admin" method="POST">
+            <div class="card">
+                <div class="card-content">
+                    <div class="field">
+                        <label class="label">New admin's name</label>
+                        <div class="control">
+                            <input class="input is-info" type="text" name="new_admin_name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-info" type="submit">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

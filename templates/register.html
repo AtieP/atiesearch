@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }}Register{% endblock %}
+
+{% block content %}
+
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            Register
+        </h1>
+        <p class="subtitle">Registering is not necessary for using AtieSearch, but it grants you more priviledges, like being able to contact the admins.</p>
+    </div>
+</section>
+<section class="section">
+    <div class="section">
+        <form action="/register" method="POST">
+            <div class="card">
+                <div class="card-content">
+                    {% if error_message %}
+                        <p class="help is-danger">{{ error_message }} </p>
+                    {% endif %}
+                    <div class="field">
+                        <label class="label">Username</label>
+                        <div class="control">
+                            <input class="input is-info" type="text" name="user_name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control">
+                            <input class="input is-info" type="password" name="user_password">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-info" type="submit">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }}Main{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">Welcome to AtieSearch!</h1>
+        <div class="card">
+            <div class="card-content">
+                <div class="field">
+                    <form action="/search" method="GET">
+                        <center><input class="input is-info" type="text" name="query" placeholder="Type here...""></center><br>
+                        <center><button class="button is-info" type="submit">Search</button></center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

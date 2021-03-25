@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }}Admin login{% endblock %}
+
+{% block content %}
+<form action="/admin" method="POST">
+    <section class="section">
+        <div class="card">
+            <div class="card-content">
+                {% if error_message %}
+                    <p class="help is-danger">{{ error_message }}</p>
+                {% endif %}
+                <div class="field">
+                    <label class="label">User</label>
+                    <div class="control">
+                        <input class="input is-info" type="text" name="admin_user">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input class="input is-info" type="password" name="admin_password">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-info" type="submit">Enter</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+{% endblock %}

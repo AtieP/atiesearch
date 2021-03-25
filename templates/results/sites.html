@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }}Search results for {{ query }}{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="card">
+        <div class="card-content">
+            <div class="field">
+                <form action="/search" method="GET">
+                    <input class="input is-info" type="text" name="query" value="{{ query }}"><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    {% if not sites %}
+        <p class="subtitle">No search results for {{ query }}.</h2>
+    {% else %}
+        {% for site in sites %}
+            <div class="card">
+                <div class="card-content">
+                    <div class="field">
+                        <a href="{{ site[1] }}">{{ site[0] }}</a>
+                        <p>{{ site[2] }}</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
+</section>
+{% endblock %}

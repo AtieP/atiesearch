@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <title>{% block title %}{% endblock %} - AtieSearch</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <body>
+        <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <p class="navbar-item">AtieSearch</p>
+            </div>
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Main
+                </a>
+                <a class="navbar-item" href="/admin">
+                    Admin
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a class="navbar-item" href="/register">
+                    Register
+                </a>
+            </div>
+        </nav>
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="footer">{% block footer %}{% endblock %}</div>
+    </body>
+</html>
